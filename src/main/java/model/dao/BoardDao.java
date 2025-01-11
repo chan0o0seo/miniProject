@@ -74,5 +74,35 @@ public class BoardDao {
             throw new RuntimeException(e);
         }
     }
+    public boolean deleteBoardById(int idx) {
+        deleteReviewById(idx);
+        String sql = "DELETE FROM board WHERE idx = ?";
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
+            pstmt.setInt(1, idx);
+            int result = pstmt.executeUpdate();
+            return result > 0;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+
+
+    }
+
+    public void deleteReviewById(int idx) {
+        String sql = "DELETE FROM review WHERE board_idx = ?";
+        System.out.println(sql);
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setInt(1, idx);
+            int result = pstmt.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+    }
 }

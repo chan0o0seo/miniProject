@@ -29,5 +29,6 @@ public class ShopService {
     public boolean selectBagByBag(Bag bag) {
         return this.productDao.selectBagByBag(bag);
     }
+    public void deleteProductById(int idx) {this.productDao.deleteProductById(idx);}
 
 }

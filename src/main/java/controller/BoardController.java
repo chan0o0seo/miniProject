@@ -50,14 +50,18 @@ public class BoardController extends HttpServlet {
         } else if(action.equals("/content")) {
             // 게시판 목록 클릭하면 들어오는 요청
             // 해당 게시글 내용과 리뷰를 담아서 content.jsp로 이동
-
-            Post post = boardService.getContent(Integer.parseInt(req.getParameter("idx")));
+            int idx = Integer.parseInt(req.getParameter("idx"));
+            Post post = boardService.getContent(idx);
             List<Review> reviewList = boardService.getReview(Integer.parseInt(req.getParameter("idx")));
 
             System.out.println("reviewList: " + reviewList);
+            req.setAttribute("idx", idx);
             req.setAttribute("post", post);
             req.setAttribute("reviewList", reviewList);
             req.getRequestDispatcher("/view/board/content.jsp").forward(req, resp);
+        }else if(action.equals("/delete")) {
+            boardService.deleteBoard(Integer.parseInt(req.getParameter("idx")));
+            resp.sendRedirect("/board/list");
         }
     }
 

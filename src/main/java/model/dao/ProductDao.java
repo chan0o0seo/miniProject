@@ -6,6 +6,7 @@ import model.Post;
 import model.Product;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -133,5 +134,33 @@ public class ProductDao {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+    public void deleteProductById(int idx) {
+        deleteBagById(idx);
+        String sql = "DELETE FROM product WHERE product_idx = ?";
+        System.out.println(sql);
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setInt(1, idx);
+            pstmt.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void deleteBagById(int idx) {
+        String sql = "DELETE FROM bag WHERE product_idx = ?";
+        System.out.println(sql);
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setInt(1, idx);
+            pstmt.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
     }
 }

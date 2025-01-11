@@ -62,6 +62,7 @@
 </nav>
 <div class="title-container">
     <h1 class="title">게시판</h1>
+    <button class="write-button btn btn-outline-dark" onclick="location.href='/board/delete?idx=${idx}';">글삭제</button>
 </div>
 <!-- 글 내용 표시 -->
 <div class="container" >

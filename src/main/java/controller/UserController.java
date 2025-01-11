@@ -87,6 +87,9 @@ public class UserController extends HttpServlet {
             }
         } else if(action.equals("/mybag")) {
             resp.sendRedirect("/shop/mybag");
+        } else if("/test".equals(action)) {
+            resp.setContentType("text/plain; charset=UTF-8"); // 텍스트 반환
+            resp.getWriter().write("ok");  // String 반환
         }
     }
 
@@ -98,7 +101,7 @@ public class UserController extends HttpServlet {
             User user = new User(
                     req.getParameter("email"),
                     req.getParameter("password"),
-                    req.getParameter("userName"),
+                    req.getParameter("name"),
                     "U"
             );
 

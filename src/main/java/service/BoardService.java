@@ -35,5 +35,6 @@ public class BoardService {
     public void insertReview(Review review) {
         this.reviewDao.insertReview(review);
     }
+    public boolean deleteBoard(int idx) { return this.boardDao.deleteBoardById(idx);}
 
 }

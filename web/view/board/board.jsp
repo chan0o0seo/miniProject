@@ -70,21 +70,37 @@
 <div class="board-container">
 <!-- 게시글 목록 -->
     <!-- 게시글 목록 출력 (동적 데이터) -->
-    <c:forEach var="post" items="${postList}">
-
-<div class="card">
-  <a href="/board/content?idx=${post.idx}" class="card-link">
-    <div class="card-body">
-      <h5 class="card-title">${post.idx}. ${post.title}</h5>
-        <h6 class="card-subtitle mb-2 text-body-secondary">${post.writer}</h6>
+  <c:forEach var="post" items="${postList}" varStatus="status">
+    <div class="card">
+      <a href="/board/content?idx=${post.idx}" class="card-link">
+        <div class="card-body">
+          <h5 class="card-title">${status.count}. ${post.title}</h5>
+          <h6 class="card-subtitle mb-2 text-body-secondary">${post.writer}</h6>
+        </div>
+      </a>
     </div>
-    </a>
-
+  </c:forEach>
+</div>
+<div>
+  <nav aria-label="Page navigation example" class="d-flex justify-content-center">
+    <ul class="pagination">
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
 </div>
 
-    </c:forEach>
-</div>
-<!-- 글쓰기 버튼 -->
 
 <script src="${pageContext.request.contextPath}/view/js/default.js"></script>
 </body>

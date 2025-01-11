@@ -63,6 +63,9 @@ public class ShopController extends HttpServlet {
                 this.shopService.addProductBag(bag);
             }
             resp.sendRedirect("/shop/list");
+        } else if(action.equals("/delete")) {
+            shopService.deleteProductById(Integer.parseInt(req.getParameter("idx")));
+            resp.sendRedirect("/shop/list");
         }
     }
 

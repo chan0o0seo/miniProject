@@ -64,6 +64,7 @@
 <!-- 타이틀-->
 <div class="title-container">
     <h1 class="title">상세페이지</h1>
+    <button class="write-button btn btn-outline-dark" onclick="location.href='/shop/delete?idx=${product.idx}';">상품삭제</button>
 </div>
 <!-- 글 내용 표시 -->
 <div class="content-container">
