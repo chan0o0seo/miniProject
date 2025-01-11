@@ -1,0 +1,192 @@
+@font-face {
+	font-family: 'CustomFont'; /* 폰트 이름 */
+	src: url('../../font/BMJUA_ttf.ttf') format('truetype'); /* ttf 파일 경로 및 형식 */
+}
+body {
+	font-family: 'CustomFont', sans-serif; /* 기본 폰트로 설정 */
+	background-size: 100%;
+	font-size: 0.75rem;
+}
+.carousel-inner {
+	display: flex;                /* Flexbox 사용 */
+	justify-content: center;      /* 가로 방향으로 중앙 정렬 */
+	align-items: center;          /* 세로 방향으로 중앙 정렬 */
+	height: 100vh;                /* 화면 전체 높이 */
+}
+
+.carousel-item h1 {
+	margin: 0;                    /* 불필요한 마진 제거 */
+	font-size: 2rem;              /* 폰트 크기 조정 */
+}
+a{
+	text-decoration: none;
+	color: black;
+}
+#loginBoxTitle {
+	color:#000000;
+	font-weight: bold;
+	font-size: 1.9rem;
+	text-transform: uppercase;
+	padding: 5px;
+	margin-bottom: 20px;
+	background: linear-gradient(to right, #270a09, #8ca6ce);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+input[type="button"] {
+	font-size: 0.75rem;
+	padding: 5px 10px;
+}
+.login-box {
+	margin:150px auto;
+	background-color: rgba(255, 255, 255, 1);
+	border-radius: 10px;
+	padding:40px 30px;
+	border:5px solid #0e0e0e;
+	width:350px;
+	filter: drop-shadow(0px 0px 10px rgba(0,0,0,.5));
+}
+
+.form-group label {
+	font-size: 0.75rem;
+	margin:5px 0;
+}
+#login-btn-box{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-top:10px;
+}
+.mypage-container {
+	display: flex;                /* Flexbox 사용 */
+	justify-content: center;      /* 가로 방향으로 중앙 정렬 */
+	align-items: center;          /* 세로 방향으로 중앙 정렬 */
+	height: 100vh;                /* 화면 전체 높이 */
+}
+.board-container {
+	justify-content: center;      /* 가로 방향으로 중앙 정렬 */
+	align-items: center;          /* 세로 방향으로 중앙 정렬 */
+	height: 100vh;
+	margin-right: 50px;
+
+	margin-left: 50px;
+}
+.card {
+	margin-top: 20px;
+}
+.title-container {
+	display: flex; /* Flexbox 사용 */
+	justify-content: center; /* 제목을 가운데 정렬 */
+	align-items: center; /* 수직으로 중앙 정렬 */
+	position: relative; /* 버튼을 절대 위치로 배치하기 위한 기준 */
+	padding: 10px 20px;
+	padding-bottom: 60px;
+	border-bottom: 1px solid #ddd; /* 구분선(optional) */
+}
+
+.title {
+	font-size: 24px; /* 제목 크기 */
+	margin: 0; /* 기본 여백 제거 */
+}
+
+.write-button {
+	position: absolute; /* 제목을 기준으로 버튼을 절대 배치 */
+	right: 20px; /* 오른쪽 여백 설정 */
+	padding: 10px 20px; /* 버튼 크기 */
+	font-size: 14px; /* 버튼 글씨 크기 */
+	cursor: pointer; /* 마우스 포인터 변경 */
+}
+
+.card-body-product {
+	display: flex; /* Flexbox를 사용하여 카드 내 요소들을 배치 */
+	flex-direction: column; /* 제목과 가격은 수직 정렬 */
+}
+
+.card-content-product {
+	display: flex; /* 이미지와 텍스트를 가로로 배치 */
+	justify-content: space-between; /* 이미지와 텍스트를 양쪽 끝에 배치 */
+	align-items: center; /* 텍스트와 이미지를 세로로 가운데 정렬 */
+}
+
+.text-section {
+	display: flex; /* 텍스트를 세로로 배치 */
+	flex-direction: column; /* 텍스트는 수직으로 정렬 */
+	margin-right: 20px; /* 오른쪽 이미지와의 간격 */
+}
+
+.card-title {
+	margin-bottom: 10px; /* 제목과 가격 간의 간격 추가 */
+}
+
+.card-subtitle {
+	margin-bottom: 10px; /* 가격과 그 아래 텍스트 간의 간격 추가 */
+}
+
+.card img {
+	margin-left: 20px; /* 이미지와 텍스트 간의 간격 추가 */
+}
+.content-container {
+	justify-content: center;
+	align-items: flex-start;
+	padding: 20px;
+
+	border-bottom: solid #adadad;
+}
+.review-container{
+	border-bottom: solid #adadad;
+}
+
+.content-header {
+	display: flex;
+	justify-content: space-between; /* 왼쪽 이미지, 오른쪽 정보 배치 */
+	align-items: stretch; /* 자식 요소가 동일한 높이를 가지도록 설정 */
+	width: 100%; /* 원하는 너비로 설정 */
+	gap: 20px; /* 이미지와 정보 간의 간격 */
+	border-bottom: solid #adadad;
+	border-width: 1px;
+}
+.write {
+	margin-top: 1rem;
+}
+
+
+.content-img {
+	flex: 0 0 auto; /* 이미지가 고정된 크기를 갖도록 설정 */
+}
+
+.content-img img {
+	width: 500px; /* 이미지 크기 조절 */
+	height: auto;
+	object-fit: cover; /* 이미지 비율 유지하면서 잘림 방지 */
+}
+
+.product-info {
+	display: flex;
+	flex-direction: column;
+	gap: 15px; /* 각 정보 간의 간격 */
+	height: 100%; /* 부모 요소의 높이에 맞게 설정 */
+	flex-grow: 1; /* 오른쪽에 정보를 배치하고, 공간을 채우도록 설정 */
+	justify-content: flex-start; /* 정보가 위에서 아래로 배치되도록 설정 */
+	text-align: left; /* 텍스트가 오른쪽 정렬되도록 설정 */
+}
+
+.product-info h2 {
+	margin: 0;
+	font-size: 1.2rem; /* 글자 크기 조절 */
+}
+.navbar {
+	background-color: #e3f2fd;
+}
+.contents {
+	margin-top: 5rem;
+}
+.review-contents {
+	margin-top: 1rem;
+}
+.review-container {
+	margin-top: 1rem;
+}
+.review-btn {
+	margin-top: 1rem;
+}
