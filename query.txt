@@ -1,0 +1,36 @@
+create table user (
+idx int auto_increment primary key,
+email varchar(100) unique,
+password varchar(500),
+name varchar(100),
+type varchar(5)
+);
+create table board (
+idx int auto_increment primary key,
+writer varchar(100),
+title varchar(100),
+content varchar(1000)
+);
+create table review(
+board_idx int,
+title varchar(300),
+content varchar(1000),
+writer varchar(100),
+ CONSTRAINT fk_board_idx FOREIGN KEY (board_idx) REFERENCES board(idx)
+);
+
+create table product(
+product_idx int auto_increment primary key,
+name varchar(100),
+original_price int,
+price int,
+description varchar(1000),
+quantity int,
+path varchar(1000) unique,
+user_idx int,
+ CONSTRAINT fk_user_idx FOREIGN KEY (user_idx) REFERENCES user(idx)
+);
+create table bag (
+product_idx int,
+user_idx int
+);
