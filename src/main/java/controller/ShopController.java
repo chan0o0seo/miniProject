@@ -66,6 +66,15 @@ public class ShopController extends HttpServlet {
         } else if(action.equals("/delete")) {
             shopService.deleteProductById(Integer.parseInt(req.getParameter("idx")));
             resp.sendRedirect("/shop/list");
+        } else if(action.equals("/bag")) {
+            req.setAttribute("bag","bag");
+            Product product = shopService.getProduct(Integer.parseInt(req.getParameter("idx")));
+            req.setAttribute("product", product);
+            req.getRequestDispatcher("/view/shop/content.jsp").forward(req, resp);
+        } else if(action.equals("/deletebag")) {
+            User user = (User) req.getSession().getAttribute("user");
+            shopService.deleteBagById(Integer.parseInt(req.getParameter("idx")),user.getIdx());
+            resp.sendRedirect("/shop/mybag");
         }
     }
 
@@ -114,6 +123,7 @@ public class ShopController extends HttpServlet {
 
             req.setAttribute("productList", productList);
             req.getRequestDispatcher("/view/shop/list.jsp").forward(req, resp);
+
         }
     }
 }

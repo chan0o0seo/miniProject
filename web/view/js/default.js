@@ -1,3 +1,4 @@
+
 function getCookie(name) {
     const cookies = document.cookie.split('; ');
     for (const cookie of cookies) {
@@ -8,6 +9,7 @@ function getCookie(name) {
     }
     return null; // 해당 이름의 쿠키가 없으면 null 반환
 }
+
 const myCookie = getCookie('demkq');
 if (myCookie === 'ekwer1') {
     document.querySelector(".login").classList.add("d-none");

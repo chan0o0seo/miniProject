@@ -5,15 +5,12 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DbConnection {
-    private static final String URL = "jdbc:mariadb://192.168.219.10:3306/world";
-    private static final String USER = "worlduser";
-    private static final String PASS = "qwer1234";
 
     private static Connection conn;
 
     static {
         try {
-            conn = DriverManager.getConnection(URL, USER, PASS);
+            conn = DriverManager.getConnection(Constants.DB_URL, Constants.DB_USER, Constants.DB_PASS);
         }catch (Exception e) {
             e.printStackTrace();
         }

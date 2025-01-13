@@ -8,6 +8,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <script>
-        alert("알림 메시지입니다.");
         window.location.href = "/view/main/main.jsp";
 </script>

@@ -105,7 +105,7 @@
     const toastLiveExample = document.getElementById('liveToast')
 
     document.getElementById('testButton').addEventListener('click', async function () {
-        await axios.get('http://122.40.225.54:3333/user/test')
+        await axios.get('http://222.112.156.89:107/user/test')
             .then(function (response) {
                 console.log('응답 데이터:', response.data);
                 const data= response.data;

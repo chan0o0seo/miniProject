@@ -70,9 +70,7 @@
     <div class="product-board-container">
         <div class="row">
             <c:forEach var="product" items="${productList}">
-
-
-                    <a href="/shop/content?idx=${product.idx}">
+                    <a href="/shop/bag?idx=${product.idx}">
                         <div class="card">
                             <div class="card-body card-body-product">
                                 <h3 class="card-title">${product.name}</h3>
@@ -96,9 +94,14 @@
     </div>
 </c:if>
 <c:if test="${empty productList}">
-    <h1>상품이 없어요!</h1>
+    <div class="container">
+        <div class="row justify-content-center align-items-center" style="height: 100vh;">
+            <div class="col-6 text-center">
+                <h1 class="display-1">상품이 없어요!</h1>
+            </div>
+        </div>
+    </div>
 </c:if>
-
 <script src="${pageContext.request.contextPath}/view/js/default.js"></script>
 </body>
 </html>

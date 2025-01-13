@@ -61,7 +61,7 @@
   </div>
 </nav>
 <div class="title-container">
-  <h1 class="title">쇼핑몰</h1>
+  <h1 class="title display-1">쇼핑몰</h1>
   <div class="write-button-container">
     <button class="write-button btn btn-outline-dark" onclick="location.href='/view/shop/register.jsp';">상품등록</button>
   </div>
@@ -70,14 +70,11 @@
 <div class="product-board-container">
   <div class="row">
   <c:forEach var="product" items="${productList}">
-
     <div class="col-sm-6 ">
-
       <a href="/shop/content?idx=${product.idx}">
       <div class="card">
         <div class="card-body card-body-product">
           <h3 class="card-title">${product.name}</h3>
-
           <div class="card-content card-content-product">
             <div class="text-section">
               <h5 class="card-subtitle mb-2 text-body-secondary">
@@ -86,19 +83,23 @@
               <h5 class="card-subtitle mb-2 text-body-secondary">가격 ${product.price}</h5>
             </div>
               <img src="${product.path}" alt="Uploaded Image" width="150px" height="150px" />
-
           </div>
         </div>
       </div>
       </a>
-
     </div>
   </c:forEach>
   </div>
 </div>
 </c:if>
 <c:if test="${empty productList}">
-  <h1>상품이 없어요!</h1>
+  <div class="container">
+    <div class="row justify-content-center align-items-center" style="height: 100vh;">
+      <div class="col-6 text-center">
+        <h1 class="display-1">상품이 없어요!</h1>
+      </div>
+    </div>
+  </div>
 </c:if>
 
 

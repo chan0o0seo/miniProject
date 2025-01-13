@@ -161,6 +161,16 @@ public class ProductDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
+    }
+    public void deleteBag(int p_idx,int u_idx) {
+        String sql = "DELETE FROM bag WHERE product_idx = ? and user_idx = ?";
+        System.out.println(sql);
+        try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, p_idx);
+            pstmt.setInt(2, u_idx);
+            pstmt.executeUpdate();
+        } catch(SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

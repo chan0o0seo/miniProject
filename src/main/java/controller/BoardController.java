@@ -1,5 +1,7 @@
 package controller;
 
+import api.Api;
+import com.google.gson.Gson;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -10,9 +12,11 @@ import model.Board;
 import model.Post;
 import model.Review;
 import model.User;
+import org.json.JSONObject;
 import service.BoardService;
 import service.UserService;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.List;
 
@@ -99,6 +103,32 @@ public class BoardController extends HttpServlet {
                 resp.sendRedirect("/board/content?idx=" + review.getBoard_idx());
             } else {
                 resp.sendRedirect("/user/login");
+            }
+        } else if(action.equals("/payment")) {
+            StringBuilder sb = new StringBuilder();
+            BufferedReader reader = req.getReader();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                sb.append(line);
+            }
+            System.out.println(sb.toString());
+
+            JSONObject jsonObject = new JSONObject(sb.toString());
+
+            String paymentId = jsonObject.getString("paymentId");
+            System.out.println("paymentId: " + paymentId);
+
+            try {
+                JSONObject jsonObject1 = Api.getPaymentInfo(paymentId);
+                System.out.println("jsonObject1: " + jsonObject1);
+                String status = jsonObject1.getString("status");
+                System.out.println("status: " + status);
+
+                JSONObject amountObject = jsonObject1.getJSONObject("amount");
+                int amount = amountObject.getInt("total");
+                System.out.println("amount: " + amount);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
             }
         }
 

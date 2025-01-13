@@ -84,7 +84,7 @@
                 <div style=""><input type="submit" id="btnLogin" value="회원가입" class="btn btn-dark"></div>
 
             </div>
-            <a href="https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=90c0a4fc42fe93071274c7f5669f12e4&redirect_uri=http://122.40.225.54:3333/user/kakao">
+            <a href="https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=90c0a4fc42fe93071274c7f5669f12e4&redirect_uri=http://222.112.156.89:107/user/kakao">
                 <img src="/asset/image/kakao.png" alt="kakaoImg"/>
             </a>
         </div><!-- login Box //-->

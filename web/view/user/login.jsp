@@ -70,7 +70,6 @@
 
 <div id="container">
     <!-- login Box -->
-
     <form action="/user/login" method="post">
     <div class="login-box">
         <div id="loginBoxTitle">Login</div>
@@ -86,7 +85,7 @@
             <div style=""><span> 아이디 저장</span> <input type="checkbox" id="workSite" name="worksite" style="margin-bottom: 5px"> </div>
             <div style=""><input type="submit" id="btnLogin" value="로그인" class="btn btn-dark"></div>
         </div>
-        <a href="https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=90c0a4fc42fe93071274c7f5669f12e4&redirect_uri=http://122.40.225.54:3333/user/kakao">
+        <a href="https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=90c0a4fc42fe93071274c7f5669f12e4&redirect_uri=http://222.112.156.89:107/user/kakao">
             <img src="/asset/image/kakao.png" alt="kakaoImg"/>
         </a>
     </div><!-- login Box //-->

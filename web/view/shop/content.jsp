@@ -64,9 +64,12 @@
 <!-- 타이틀-->
 <div class="title-container">
     <h1 class="title">상세페이지</h1>
+<c:if test="${empty bag}">
     <button class="write-button btn btn-outline-dark" onclick="location.href='/shop/delete?idx=${product.idx}';">상품삭제</button>
+</c:if>
 </div>
 <!-- 글 내용 표시 -->
+<c:if test="${empty bag}">
 <div class="content-container">
     <div class="content-header">
         <div class="content-img">
@@ -83,18 +86,77 @@
             <form action="/shop/addbag" method="get" class="d-flex">
                 <input type="hidden" name="idx" value="${product.idx}">
                 <button type="submit" class="btn btn-outline-dark" style="margin-left: 20px">장바구니 담기</button>
+                <button type="button" class="btn btn-outline-dark" onclick="pay()" style="margin-left: 20px">결제하기</button>
             </form>
         </div>
     </div>
 </div>
+</c:if>
+<c:if test="${not empty bag}">
+    <div class="content-container">
+        <div class="content-header">
+            <div class="content-img">
+                <img src="${product.path}" alt="Uploaded Image" />
+            </div>
 
+            <div class="product-info">
 
-
-
+                <h2> ${product.name}</h2> <!-- 제목 -->
+                <h2>${product.original_price}</h2>
+                <h2>${product.price}</h2>
+                <h2>${product.description}</h2>
+                <h2>${product.quantity}</h2>
+                <form action="/shop/deletebag" method="get" class="d-flex">
+                    <input type="hidden" name="idx" value="${product.idx}">
+                    <button type="submit" class="btn btn-outline-dark" style="margin-left: 20px">장바구니에서 빼기</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</c:if>
 <!-- 리뷰 목록 -->
 
-<script src="${pageContext.request.contextPath}/view/js/default.js"></script>
+<script src="https://cdn.portone.io/v2/browser-sdk.js"></script>
+<script>
+    const pay = async () => {
+            const response = await PortOne.requestPayment({
+                // Store ID 설정
+                storeId: "store-b11387a5-26aa-4e6b-b7bf-dd705e2ccc62",
+                // 채널 키 설정
+                channelKey: "channel-key-41ab8efe-9eb9-455a-8469-98f988aaff52",
+                paymentId: 'payment-' + generateUUID(),
+                orderName: "${product.name}",
+                totalAmount: ${product.price},
+                currency: "CURRENCY_KRW",
+                payMethod: "EASY_PAY",
+            });
 
+        if (response.code !== undefined) {
+            // 오류 발생
+            return alert(response.message);
+        }
+        console.log(response);
+
+        // /payment/complete 엔드포인트를 구현해야 합니다. 다음 목차에서 설명합니다.
+        const notified = await fetch(`http://222.112.156.89:107/board/payment`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            // paymentId와 주문 정보를 서버에 전달합니다
+            body: JSON.stringify({
+                paymentId: response.paymentId,
+                // 주문 정보...
+            }),
+        });
+    }
+    function generateUUID() {
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+            const r = Math.random() * 16 | 0;
+            const v = c === 'x' ? r : (r & 0x3 | 0x8);
+            return v.toString(16);
+        });
+    }
+</script>
+<script src="${pageContext.request.contextPath}/view/js/default.js"></script>
 </body>
 </html>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>

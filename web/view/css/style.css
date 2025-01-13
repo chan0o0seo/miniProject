@@ -190,3 +190,7 @@ input[type="button"] {
 .review-btn {
 	margin-top: 1rem;
 }
+.product-board-container {
+	margin-left: 3rem;
+	margin-right: 3rem;
+}

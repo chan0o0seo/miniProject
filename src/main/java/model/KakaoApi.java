@@ -16,7 +16,7 @@ public class KakaoApi {
         String accessToken = null;
         String apiUrl = "https://kauth.kakao.com/oauth/token"; // Kakao Token API URL
         String clientId = "90c0a4fc42fe93071274c7f5669f12e4"; // Kakao REST API Key
-        String redirectUri = "http://122.40.225.54:3333/user/kakao"; // Kakao Redirect URI
+        String redirectUri = "http://222.112.156.89:107/user/kakao"; // Kakao Redirect URI
 
         // URL 파라미터 준비
         StringBuilder sb = new StringBuilder(apiUrl);
